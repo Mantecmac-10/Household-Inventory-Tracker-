@@ -29,8 +29,8 @@ export const handleRegister = async (
     const result = await User.findById(user._id).select("-password");
 
     res.status(201).send(result);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -61,7 +61,7 @@ export const handleLogin = async (
       config.JWT_KEY,
     );
     res.status(200).json({ message: "signin done", token });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    console.error(error);
   }
 };

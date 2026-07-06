@@ -78,7 +78,7 @@ export const joinHoushold = async (
       .status(200)
       .json({ message: "New User Added!", members: existhouseHold.members });
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 };
 
@@ -108,7 +108,7 @@ export const getcurrentHousehold = async (
       .status(200)
       .send({ message: "Household of this User", houseHold });
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 };
 
@@ -130,6 +130,6 @@ export const getMembers = async (
 
     return res.status(200).send({ message: "List of Members ", result });
   } catch (error) {
-    next();
+    console.error(error);
   }
 };
