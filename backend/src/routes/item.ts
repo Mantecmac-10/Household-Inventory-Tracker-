@@ -6,8 +6,11 @@ import {
   removeItem,
   updateItem,
 } from "../controllers/item";
+import { verifyUser } from "../middlewares/auth";
 
 const router = Router();
+
+router.use(verifyUser);
 
 router.get("/", listItems);
 router.post("/", createItem);
