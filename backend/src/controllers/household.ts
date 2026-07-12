@@ -3,11 +3,7 @@ import { generateInviteCode } from "../helpers/inviteCode";
 import household from "../models/household";
 import User from "../models/user";
 
-export const createHousehold = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const createHousehold = async (req: Request, res: Response) => {
   try {
     const creatorId = req.userId as string;
 
@@ -34,15 +30,11 @@ export const createHousehold = async (
 
     return res.status(201).send({ message: "Household Created", houseHold });
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 };
 
-export const joinHoushold = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const joinHoushold = async (req: Request, res: Response) => {
   try {
     const inviteCode = req.body.inviteCode;
     const userId = req.userId;
@@ -82,11 +74,7 @@ export const joinHoushold = async (
   }
 };
 
-export const getcurrentHousehold = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const getcurrentHousehold = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
 
@@ -112,11 +100,7 @@ export const getcurrentHousehold = async (
   }
 };
 
-export const getMembers = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const getMembers = async (req: Request, res: Response) => {
   try {
     const householdId = req.params.householdId;
 

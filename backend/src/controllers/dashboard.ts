@@ -3,11 +3,7 @@ import user from "../models/user";
 import household from "../models/household";
 import items from "../models/items";
 
-export const showStatus = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const showStatus = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
 
@@ -54,11 +50,7 @@ export const showStatus = async (
   }
 };
 
-export const itemExpiring = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const itemExpiring = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
 

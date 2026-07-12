@@ -3,11 +3,7 @@ import User from "../models/user";
 import items from "../models/items";
 import { sendExpiryEmail } from "../queue/producer";
 
-export const listItems = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const listItems = async (req: Request, res: Response) => {
   try {
     const userId = req.userId;
     const { status, category } = req.query;
@@ -33,11 +29,7 @@ export const listItems = async (
   }
 };
 
-export const createItem = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const createItem = async (req: Request, res: Response) => {
   try {
     const { name, category, quantity, expiryDate } = req.body;
 
@@ -82,11 +74,7 @@ export const createItem = async (
   }
 };
 
-export const markStatus = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const markStatus = async (req: Request, res: Response) => {
   try {
     const itemId = req.params.itemId;
     const creatorId = req.params.creatorId;
@@ -123,11 +111,7 @@ export const markStatus = async (
   }
 };
 
-export const updateItem = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const updateItem = async (req: Request, res: Response) => {
   try {
     const itemId = req.params.id;
     const parsedData = req.body;
@@ -186,11 +170,7 @@ export const updateItem = async (
   }
 };
 
-export const removeItem = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const removeItem = async (req: Request, res: Response) => {
   try {
     const itemId = req.params.id;
     const creatorId = req.userId;

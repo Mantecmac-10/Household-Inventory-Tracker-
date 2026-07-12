@@ -4,11 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { config } from "../config/env";
 
-export const handleRegister = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const handleRegister = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
 
@@ -34,11 +30,7 @@ export const handleRegister = async (
   }
 };
 
-export const handleLogin = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const handleLogin = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
